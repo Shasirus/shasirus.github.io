@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BadukDroid — Minimalist Baduk (Go) for two players on one device">
+  <meta name="theme-color" content="#0f172a">
+  <title>BadukDroid | Minimalist Baduk</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Page-specific styles */
+    .project-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .project-hero__gradient {
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+    }
+
+    .back-link:hover {
+      color: var(--primary-light);
+    }
+
+    .project-hero__logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transition: var(--transition);
+    }
+
+    .project-hero__logo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.3);
+    }
+
+    .project-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-hero__subtitle {
+      font-size: 1.35rem;
+      color: var(--primary-light);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-hero__description {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .project-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-hero__tags .tag {
+      padding: 0.35rem 0.85rem;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--primary-light);
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    .project-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn--play {
+      background: #01875f;
+      color: white;
+      box-shadow: 0 4px 20px rgba(1, 135, 95, 0.35);
+    }
+
+    .btn--play:hover {
+      background: #016b4c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(1, 135, 95, 0.45);
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--primary-light);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card__description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Screenshots */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .screenshot-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      aspect-ratio: 9/16;
+      position: relative;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .screenshot-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(1, 135, 95, 0.08));
+      text-align: center;
+    }
+
+    .cta-section .section__title {
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section .section__description {
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-hero {
+        padding-top: 6.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <span class="logo-icon">{</span>
+        <span class="logo-text">Shasirus</span>
+      </a>
+      
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html#home" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="index.html#projects" class="nav__link active">Projects</a></li>
+          <li class="nav__item"><a href="index.html#extensions" class="nav__link">Extensions</a></li>
+          <li class="nav__item"><a href="index.html#screenshots" class="nav__link">Screenshots</a></li>
+          <li class="nav__item"><a href="index.html#support" class="nav__link">Support</a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__close" id="nav-close">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== PROJECT HERO ========== -->
+    <section class="project-hero section">
+      <div class="project-hero__bg">
+        <div class="project-hero__gradient"></div>
+      </div>
+
+      <div class="container">
+        <a href="index.html#projects" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Back to projects
+        </a>
+
+        <img 
+          src="assets/images/badukdroid.png" 
+          alt="BadukDroid logo" 
+          class="project-hero__logo"
+          width="96"
+          height="96"
+        >
+
+        <h1 class="project-hero__title">BadukDroid</h1>
+        <p class="project-hero__subtitle">Minimalist Baduk</p>
+        
+        <p class="project-hero__description">
+          A clean, distraction-free Go experience for two players on one device. 
+          Focus on the stones — everything else stays out of the way.
+        </p>
+
+        <div class="project-hero__tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Android</span>
+          <span class="tag">Go / Baduk / Weiqi</span>
+        </div>
+
+        <div class="project-hero__actions">
+          <a href="https://play.google.com/store/apps/details?id=com.shasirus.badukdroid" class="btn btn--play" target="_blank" rel="noopener">
+            <i class="fab fa-google-play"></i>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Features</span>
+          <h2 class="section__title">Built around the board</h2>
+          <p class="section__description">
+            Simple app designed to make playing, reviewing and managing Go games feel natural.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 01 -->
+          <article class="feature-card">
+            <span class="feature-card__number">01</span>
+            <h3 class="feature-card__title">Board sizes</h3>
+            <p class="feature-card__description">
+              Play on 9×9, 13×13, or 19×19 — from quick games to full-board matches.
+            </p>
+          </article>
+
+          <!-- Feature 02 -->
+          <article class="feature-card">
+            <span class="feature-card__number">02</span>
+            <h3 class="feature-card__title">Confirm before you place</h3>
+            <p class="feature-card__description">
+              Tap an intersection to preview a ghost stone, then confirm with the check button. Avoid mis-taps on denser boards.
+            </p>
+          </article>
+
+          <!-- Feature 03 -->
+          <article class="feature-card">
+            <span class="feature-card__number">03</span>
+            <h3 class="feature-card__title">Pinch-to-zoom</h3>
+            <p class="feature-card__description">
+              Zoom and pan only the board for precise placement. Double-tap or ease out to return smoothly to the full view.
+            </p>
+          </article>
+
+          <!-- Feature 04 -->
+          <article class="feature-card">
+            <span class="feature-card__number">04</span>
+            <h3 class="feature-card__title">Scoring & dead stones</h3>
+            <p class="feature-card__description">
+              After two consecutive passes, mark dead groups, see territory, and get a Japanese-style score with komi.
+            </p>
+          </article>
+
+          <!-- Feature 05 -->
+          <article class="feature-card">
+            <span class="feature-card__number">05</span>
+            <h3 class="feature-card__title">SGF import & export</h3>
+            <p class="feature-card__description">
+              Save games as SGF or load existing records. Review with playback, speed control, and step-by-step navigation.
+            </p>
+          </article>
+
+          <!-- Feature 06 -->
+          <article class="feature-card">
+            <span class="feature-card__number">06</span>
+            <h3 class="feature-card__title">Themes & styles</h3>
+            <p class="feature-card__description">
+              Several board woods and stone styles, plus light and dark mode. Preferences are saved across sessions.
+            </p>
+          </article>
+
+          <!-- Feature 07 -->
+          <article class="feature-card">
+            <span class="feature-card__number">07</span>
+            <h3 class="feature-card__title">Two-player friendly board</h3>
+            <p class="feature-card__description">
+              Coordinates are oriented for both sides of the table so Black and White can read the board comfortably.
+            </p>
+          </article>
+
+          <!-- Feature 08 -->
+          <article class="feature-card">
+            <span class="feature-card__number">08</span>
+            <h3 class="feature-card__title">Calm audio feedback</h3>
+            <p class="feature-card__description">
+              Soft placement and capture sounds with adjustable volume — quiet enough to stay focused.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VISUALS / SCREENSHOTS ========== -->
+    <section class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Visuals</span>
+          <h2 class="section__title">Screenshots</h2>
+          <p class="section__description">
+            A look at BadukDroid in action.
+          </p>
+        </div>
+
+        <div class="screenshots-grid">
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/1.png" alt="BadukDroid screenshot 1" loading="lazy">
+          </div>
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/2.png" alt="BadukDroid screenshot 2" loading="lazy">
+          </div>
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/3.png" alt="BadukDroid screenshot 3" loading="lazy">
+          </div>
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/4.png" alt="BadukDroid screenshot 4" loading="lazy">
+          </div>
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/5.png" alt="BadukDroid screenshot 5" loading="lazy">
+          </div>
+          <div class="screenshot-item">
+            <img src="assets/images/screenshots/badukdroid/6.png" alt="BadukDroid screenshot 6" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section cta-section">
+      <div class="container">
+        <span class="section__subtitle">Get BadukDroid</span>
+        <h2 class="section__title">Ready to play?</h2>
+        <p class="section__description">
+          Download BadukDroid from Google Play and play Go whenever you have a friend nearby.
+        </p>
+        <a href="https://play.google.com/store/apps/details?id=com.shasirus.badukdroid" class="btn btn--play" target="_blank" rel="noopener">
+          <i class="fab fa-google-play"></i>
+          Google Play
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+        <p>© <span id="year"></span> Shasirus. Built with Flutter & Dart</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

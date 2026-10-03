@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of projects, apps and browser extensions">
+  <meta name="theme-color" content="#0f172a">
+  <title>Shasirus | Apps & Extensions</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Custom cursor (optional) -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Navbar -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">{</span>
+        <span class="logo-text">Shasirus</span>
+      </a>
+      
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+          <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="#extensions" class="nav__link">Extensions</a></li>
+          <li class="nav__item"><a href="#screenshots" class="nav__link">Screenshots</a></li>
+          <li class="nav__item"><a href="#support" class="nav__link">Support</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__close" id="nav-close">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero section" id="home">
+      <div class="hero__bg">
+        <div class="hero__gradient"></div>
+        <div class="hero__grid"></div>
+      </div>
+      
+      <div class="container hero__container">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="badge-dot"></span>
+            Available for new projects
+          </div>
+          
+          <h1 class="hero__title">
+            <span class="text-gradient">Apps</span>, 
+            <span class="text-gradient">extensions</span> and<br>
+            other things I build
+          </h1>
+          
+          <p class="hero__description">
+            Indie developer focused on useful tools, 
+            browser extensions and android apps. 
+            Everything open source or freemium.
+          </p>
+          
+          <div class="hero__buttons">
+            <a href="#projects" class="btn btn--primary">
+              <i class="fas fa-rocket"></i>
+              View projects
+            </a>
+            <a href="#support" class="btn btn--secondary">
+              <i class="fas fa-heart"></i>
+              Support on Ko-fi
+            </a>
+          </div>
+          
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__number" data-count="1">0</span>
+              <span class="stat__label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-count="2">0</span>
+              <span class="stat__label">Extensions</span>
+            </div>
+            <!-- <div class="stat">
+              <span class="stat__number" data-count="15">0</span>
+              <span class="stat__label">k users</span>
+            </div> -->
+          </div>
+        </div>
+        
+        <div class="hero__visual">
+          <div class="hero__card hero__card--1">
+            <i class="fas fa-puzzle-piece"></i>
+            <span>Extensions</span>
+          </div>
+          <div class="hero__card hero__card--2">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Apps</span>
+          </div>
+          <div class="hero__card hero__card--3">
+            <i class="fas fa-code"></i>
+            <span>Open Source</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero__scroll">
+        <a href="#projects" class="scroll-down">
+          <span>Scroll</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS / APPS ========== -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">My creations</span>
+          <h2 class="section__title">Apps & Projects</h2>
+          <p class="section__description">
+            Applications and tools I've built. 
+            Some are open source, others freemium.
+          </p>
+        </div>
+
+        <div class="projects__filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="app">Apps</button>
+          <button class="filter-btn" data-filter="tool">Tools</button>
+          <button class="filter-btn" data-filter="oss">Open Source</button>
+        </div>
+
+        <div class="projects__grid">
+          <!-- Project 1 -->
+          <article class="project-card" data-category="app">
+            <div class="project-card__image">
+              <img src="assets/images/badukdroid.png" alt="Project name" loading="lazy">
+              <div class="project-card__overlay">
+                <a href="badukdroid.html" class="project-card__link" target="_blank" rel="noopener">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+              <span class="project-card__badge">App</span>
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title">BadukDroid - Go, Baduk, Weiqi</h3>
+              <p class="project-card__description">
+                A clean, distraction-free Go experience for two players on a single device. Focus on the stones: everything else stays out of the way.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Android</span>
+              </div>
+              <div class="project-card__footer" style="display: flex; justify-content: center;">
+                <a href="https://play.google.com/store/apps/details?id=com.shasirus.badukdroid"
+                  class="btn-sm btn-sm--primary"
+                  target="_blank"
+                  rel="noopener">
+                  <i class="fab fa-google-play"></i> Google Play
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXTENSIONS ========== -->
+    <section class="section extensions" id="extensions">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Chrome & Firefox</span>
+          <h2 class="section__title">Browser Extensions</h2>
+          <p class="section__description">
+            Lightweight and useful extensions published on Firefox Add-ons.
+          </p>
+        </div>
+
+        <div class="extensions__grid">
+          <!-- Extension 1 -->
+          <article class="extension-card">
+            <div class="extension-card__icon">
+              <img src="assets/images/wpt.png" alt="Wallapop Price Tracker"></img>
+            </div>
+            <div class="extension-card__content">
+              <h3 class="extension-card__title">Wallapop Price Tracker</h3>
+              <p class="extension-card__description">
+                Wallapop Price Tracker is a lightweight yet powerful browser extension designed to help you track item prices, monitor market trends, and receive notifications when prices drop on Wallapop.
+              </p>
+              <div class="extension-card__meta">
+                <!-- <span><i class="fas fa-download"></i> 12.4k</span> -->
+                <!-- <span><i class="fas fa-star"></i> 4.8</span> -->
+              </div>
+              <div class="extension-card__links">
+                <!-- <a href="#" class="store-btn chrome" target="_blank" rel="noopener">
+                  <i class="fab fa-chrome"></i> Chrome
+                </a> -->
+                <a href="https://addons.mozilla.org/firefox/addon/wallapop-price-tracker/" class="store-btn firefox" target="_blank" rel="noopener">
+                  <i class="fab fa-firefox-browser"></i> Firefox
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Extension 2 -->
+          <article class="extension-card">
+            <div class="extension-card__icon">
+              <img src="assets/images/ssp.png" alt="Wallapop Price Tracker"></img>
+            </div>
+            <div class="extension-card__content">
+              <h3 class="extension-card__title">Save Scroll Position</h3>
+              <p class="extension-card__description">
+                Save and restore scroll positions on the web pages you choose, seamlessly across PC and Android. Never lose your place again!
+              </p>
+              <!-- <div class="extension-card__meta">
+                <span><i class="fas fa-download"></i> 8.2k</span>
+                <span><i class="fas fa-star"></i> 4.9</span>
+              </div> -->
+              <div class="extension-card__links">
+                <!-- <a href="#" class="store-btn chrome" target="_blank" rel="noopener">
+                  <i class="fab fa-chrome"></i> Chrome
+                </a> -->
+                <a href="https://addons.mozilla.org/firefox/addon/save-scroll-position/" class="store-btn firefox" target="_blank" rel="noopener">
+                  <i class="fab fa-firefox-browser"></i> Firefox
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== SCREENSHOTS ========== -->
+    <section class="section gallery" id="screenshots">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Visuals</span>
+          <h2 class="section__title">Screenshots</h2>
+          <p class="section__description">
+            A few screenshots of BadukDroid in action.
+          </p>
+        </div>
+
+        <div class="gallery__grid">
+
+          <div class="gallery__item">
+            <img
+              src="assets/images/screenshots/badukdroid/1.png"
+              alt="BadukDroid game board"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery__item">
+            <img
+              src="assets/images/screenshots/badukdroid/2.png"
+              alt="BadukDroid game screen"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery__item">
+            <img
+              src="assets/images/screenshots/badukdroid/3.png"
+              alt="BadukDroid settings"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery__item">
+            <img
+              src="assets/images/screenshots/badukdroid/4.png"
+              alt="BadukDroid interface"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="gallery__item">
+            <img
+              src="assets/images/screenshots/badukdroid/5.png"
+              alt="BadukDroid game"
+              loading="lazy"
+            >
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== SUPPORT / KO-FI ========== -->
+    <section class="section support" id="support">
+      <div class="container">
+        <div class="support__wrapper">
+          <div class="support__content">
+            <span class="section__subtitle">Like my projects?</span>
+            <h2 class="section__title">Support my work</h2>
+            <p class="support__description">
+              All my apps and extensions are free or freemium. 
+              If you find them useful, you can buy me a coffee. 
+              Every contribution helps me keep building more tools.
+            </p>
+            
+            <div class="support__benefits">
+              <div class="benefit">
+                <i class="fas fa-code"></i>
+                <span>More projects</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-bolt"></i>
+                <span>Faster updates</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-heart"></i>
+                <span>Motivation to keep creating</span>
+              </div>
+            </div>
+
+            <div class="support__buttons">
+              <a href="https://ko-fi.com/shasirus" class="btn btn--kofi" target="_blank" rel="noopener">
+                <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" class="kofi-icon">
+                Support me on Ko-fi
+              </a>
+              <a href="https://github.com/sponsors/Shasirus" class="btn btn--secondary" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>
+                GitHub Sponsors
+              </a>
+            </div>
+          </div>
+          
+          <div class="support__visual">
+            <div class="coffee-cup">
+              <div class="coffee-steam"></div>
+              <i class="fas fa-mug-hot"></i>
+            </div>
+            <p class="support__note">Thanks for the support! ☕</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+        CONTACT
+    ============================================ -->
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__subtitle">Get in touch</span>
+          <h2 class="section__title">Contact</h2>
+          <p class="section__description">
+            Have a question, suggestion, or just want to say hello?
+          </p>
+        </div>
+
+        <div class="contact__wrapper">
+
+          <!-- Contact info -->
+          <div class="contact__info">
+
+            <div class="contact__card">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <a href="mailto:shasirus.dev@gmail.com">
+                shasirus.dev@gmail.com
+              </a>
+            </div>
+
+            <div class="contact__card">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <a href="https://github.com/Shasirus" target="_blank" rel="noopener">
+                github.com/Shasirus
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Email button -->
+          <div class="contact__form">
+            <h3 style="margin-bottom: 0.75rem;">Send me an email</h3>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+              Clicking the button will open your default email application.
+            </p>
+
+            <a
+              href="mailto:shasirus.dev@gmail.com?subject=Contact%20from%20your%20website"
+              class="btn btn--primary btn--full"
+            >
+              <i class="fas fa-paper-plane"></i>
+              Send Email
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo">
+            <span class="logo-icon">{</span>
+            <span class="logo-text">Shasirus</span>
+          </a>
+          <p>Building useful tools for people.</p>
+        </div>
+        
+        <div class="footer__links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#extensions">Extensions</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__links">
+          <h4>Social</h4>
+          <ul>
+            <li><a href="https://github.com/Shasirus" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="https://ko-fi.com/shasirus" target="_blank"><i class="fas fa-coffee"></i> Ko-fi</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>© <span id="year"></span> Shasirus. Made with ❤️ and lots of coffee.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="scroll-top" id="scroll-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
